@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Monte Carlo Simulation</h1>
+      </ion-header-bar>
+      <ion-content ng-controller="MonteCarlo">
+        <div class="row row-center">
+            <canvas id="simulation" width="300" height="300" style="border:1px solid #000000;">
+            </canvas>
+        </div>
+        <div class="row row-center">
+          <div class="col text-center">
+            &pi;&nbsp;&asymp;&nbsp;<span ng-bind="4*pointsInside/totalPoints || 0"></span>
+          </div>
+        </div>
+        <button ng-click="step(1)" class="button button-block button-positive">
+         Step Once
+        </button>
+        <button ng-click="step(1000)" class="button button-block button-positive">
+         Step 1000x
+        </button>
+        <button ng-click="reset()" class="button button-block button-assertive">
+         Reset
+        </button>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
